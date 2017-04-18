@@ -23,7 +23,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.3.3",
-    "zendframework/zendframework": "2.3.*",
+    "zendframework/zendframework": "^2.3",
     "doctrine/common": "~2.5@dev",
     "jms/serializer": "dev-GenericAccessor"
   },
