@@ -34,6 +34,6 @@ class Groups {
 	 */
 	public static function __set_state(array $values)
 	{
-		return new self($values);
+		return new self(array('value' => $values['groups']));
 	}
 }
