@@ -2,6 +2,8 @@
 
 namespace Aeris\ZendRestModule\Service\Serializer;
 
+use JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface;
+use JMS\Serializer\ContextFactory\SerializationContextFactoryInterface;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\EventDispatcher\EventDispatcher;
 use JMS\Serializer\Handler\HandlerRegistry;
@@ -12,11 +14,20 @@ use JMS\Serializer\SerializerBuilder;
 
 class Serializer implements SerializerInterface
 {
-
-	/**
+    /**
 	 * @var JMSSerializer
 	 */
 	protected $serializer;
+
+    /**
+     * @var DeserializationContextFactoryInterface
+     */
+    protected $deserializationContextFactory;
+
+    /**
+     * @var SerializationContextFactoryInterface
+     */
+	protected $serializationContextFactory;
 
 	public function __construct(array $config) {
 		$config = array_replace($defaults = [
@@ -92,4 +103,28 @@ class Serializer implements SerializerInterface
 			return $this->serializer->deserialize($data, $object, $format);
 		}
 	}
+
+    /**
+     * @param SerializationContextFactoryInterface $serializationContextFactory
+     *
+     * @return self
+     */
+    public function setSerializationContextFactory(SerializationContextFactoryInterface $serializationContextFactory)
+    {
+        $this->serializationContextFactory = $serializationContextFactory;
+
+        return $this;
+    }
+
+    /**
+     * @param DeserializationContextFactoryInterface $deserializationContextFactory
+     *
+     * @return self
+     */
+    public function setDeserializationContextFactory(DeserializationContextFactoryInterface $deserializationContextFactory)
+    {
+        $this->deserializationContextFactory = $deserializationContextFactory;
+
+        return $this;
+    }
 }
