@@ -76,6 +76,11 @@ class Serializer implements SerializerInterface
 	}
 
 	public function serialize($data, $format, SerializationContext $context = null) {
+
+	    if ($context === null && $this->deserializationContextFactory instanceof SerializationContextFactoryInterface) {
+            $context = $this->serializationContextFactory->createSerializationContext();
+        }
+
 		return $this->serializer->serialize($data, $format, $context);
 	}
 
@@ -94,7 +99,9 @@ class Serializer implements SerializerInterface
 		}
 
 		if(is_object($object)) {
-			$context = new DeserializationContext();
+			$context = $this->deserializationContextFactory
+                ? $this->deserializationContextFactory->createDeserializationContext()
+                : new DeserializationContext();
 			$context->attributes->set('target', $object);
 
 			return $this->serializer->deserialize($data, get_class($object), $format, $context);
