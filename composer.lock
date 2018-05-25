@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1235ff9b73c86682e682e11c4be9ce3d",
+    "content-hash": "09b82f300e0244a38a062ec1a7898d55",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -553,16 +553,16 @@
         },
         {
             "name": "ministryofjustice/serializer",
-            "version": "0.17.2",
+            "version": "0.17.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ministryofjustice/serializer.git",
-                "reference": "e55820cba3831c26c0c880c7610dac562ee87222"
+                "reference": "1dfb36125b0ecfb4bb8033df289c9ba9da9a6ee6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ministryofjustice/serializer/zipball/e55820cba3831c26c0c880c7610dac562ee87222",
-                "reference": "e55820cba3831c26c0c880c7610dac562ee87222",
+                "url": "https://api.github.com/repos/ministryofjustice/serializer/zipball/1dfb36125b0ecfb4bb8033df289c9ba9da9a6ee6",
+                "reference": "1dfb36125b0ecfb4bb8033df289c9ba9da9a6ee6",
                 "shasum": ""
             },
             "require": {
@@ -570,7 +570,7 @@
                 "doctrine/instantiator": "~1.0.3",
                 "jms/metadata": "~1.1",
                 "jms/parser-lib": "1.*",
-                "php": ">=5.3.2",
+                "php": ">=5.4.0",
                 "phpcollection/phpcollection": "~0.1"
             },
             "require-dev": {
@@ -592,7 +592,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.17-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -613,7 +613,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-05-24T10:02:51+00:00"
+            "time": "2018-05-25T13:58:57+00:00"
         },
         {
             "name": "phpcollection/phpcollection",
