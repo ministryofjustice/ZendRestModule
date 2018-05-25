@@ -8,17 +8,7 @@
     "restful",
     "api"
   ],
-  "license": "GPL",
-  "authors": [
-    {
-      "name": "Edan Schwartz",
-      "email": "edanschwartz@gmail.com"
-    },
-    {
-      "name": "Seth Miller",
-      "email": "seth@four43.com"
-    }
-  ],
+  "license": "MIT",
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.3.3",
