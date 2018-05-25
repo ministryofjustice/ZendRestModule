@@ -1,7 +1,6 @@
 {
-  "name": "aeris/zend-rest-module",
+  "name": "ministryofjustice/zend-rest-module",
   "description": "A Zend module for creating RESTful web services.",
-  "version": "1.1.1",
   "keywords": [
     "zend",
     "zf2",
@@ -25,7 +24,7 @@
     "php": ">=5.3.3",
     "zendframework/zendframework": "^2.3",
     "doctrine/common": "~2.5@dev",
-    "jms/serializer": "dev-GenericAccessor"
+    "ministryofjustice/serializer": "0.17.2"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*@dev",
