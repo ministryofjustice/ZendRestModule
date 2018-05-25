@@ -14,7 +14,7 @@
     "php": ">=5.3.3",
     "zendframework/zendframework": "^2.3",
     "doctrine/common": "~2.5@dev",
-    "ministryofjustice/serializer": "0.17.3"
+    "jms/serializer": "dev-GenericAccessor"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*@dev",
