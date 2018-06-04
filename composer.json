@@ -2,16 +2,16 @@
   "name": "ministryofjustice/zend-rest-module",
   "description": "A Zend module for creating RESTful web services.",
   "license": "MIT",
-  "minimum-stability": "dev",
   "require": {
-    "php": ">=5.3.3",
-    "zendframework/zendframework": "2.3.*",
-    "doctrine/common": "~2.5@dev",
-    "jms/serializer": "~0.16.0"
+    "php": ">=7.1",
+    "zendframework/zendframework": "^2.3",
+    "doctrine/common": "~2.5",
+    "jms/serializer": "^1.10"
   },
   "require-dev": {
-    "mockery/mockery": "0.9.*@dev",
-    "aeris/guzzle-http-mock": "~1.0.0"
+    "mockery/mockery": "^0.9",
+    "aeris/guzzle-http-mock": "^1.0.0",
+    "phpunit/phpunit": "^7.2"
   },
   "autoload": {
     "psr-4": {
@@ -22,6 +22,11 @@
     },
     "classmap": [
       "test/ZendRestModuleTest/Integration/Fixture/RestTestModule/Module.php"
+    ]
+  },
+  "autoload-dev": {
+    "files": [
+      "test/autoload/phpunit-class-aliases.php"
     ]
   }
 }

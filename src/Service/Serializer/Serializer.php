@@ -2,6 +2,8 @@
 
 namespace Aeris\ZendRestModule\Service\Serializer;
 
+use JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface;
+use JMS\Serializer\ContextFactory\SerializationContextFactoryInterface;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\EventDispatcher\EventDispatcher;
 use JMS\Serializer\Handler\HandlerRegistry;
@@ -12,11 +14,20 @@ use JMS\Serializer\SerializerBuilder;
 
 class Serializer implements SerializerInterface
 {
-
-	/**
+    /**
 	 * @var JMSSerializer
 	 */
 	protected $serializer;
+
+    /**
+     * @var DeserializationContextFactoryInterface
+     */
+    protected $deserializationContextFactory;
+
+    /**
+     * @var SerializationContextFactoryInterface
+     */
+	protected $serializationContextFactory;
 
 	public function __construct(array $config) {
 		$config = array_replace($defaults = [
@@ -65,6 +76,11 @@ class Serializer implements SerializerInterface
 	}
 
 	public function serialize($data, $format, SerializationContext $context = null) {
+
+	    if ($context === null && $this->deserializationContextFactory instanceof SerializationContextFactoryInterface) {
+            $context = $this->serializationContextFactory->createSerializationContext();
+        }
+
 		return $this->serializer->serialize($data, $format, $context);
 	}
 
@@ -83,7 +99,9 @@ class Serializer implements SerializerInterface
 		}
 
 		if(is_object($object)) {
-			$context = new DeserializationContext();
+			$context = $this->deserializationContextFactory
+                ? $this->deserializationContextFactory->createDeserializationContext()
+                : new DeserializationContext();
 			$context->attributes->set('target', $object);
 
 			return $this->serializer->deserialize($data, get_class($object), $format, $context);
@@ -92,4 +110,28 @@ class Serializer implements SerializerInterface
 			return $this->serializer->deserialize($data, $object, $format);
 		}
 	}
+
+    /**
+     * @param SerializationContextFactoryInterface $serializationContextFactory
+     *
+     * @return self
+     */
+    public function setSerializationContextFactory(SerializationContextFactoryInterface $serializationContextFactory)
+    {
+        $this->serializationContextFactory = $serializationContextFactory;
+
+        return $this;
+    }
+
+    /**
+     * @param DeserializationContextFactoryInterface $deserializationContextFactory
+     *
+     * @return self
+     */
+    public function setDeserializationContextFactory(DeserializationContextFactoryInterface $deserializationContextFactory)
+    {
+        $this->deserializationContextFactory = $deserializationContextFactory;
+
+        return $this;
+    }
 }

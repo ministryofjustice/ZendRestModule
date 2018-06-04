@@ -25,4 +25,15 @@ class Groups {
 		return $this->groups;
 	}
 
+	/**
+	 * Creates a new Groups annotation
+	 *
+	 * This method allow Doctrine\Common\Cache\PhpFileCache compatibility
+	 *
+	 * @param array $values array containing property values
+	 */
+	public static function __set_state(array $values)
+	{
+		return new self(array('value' => $values['groups']));
+	}
 }

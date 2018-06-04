@@ -36,7 +36,10 @@ class SerializerFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/** @test */
-	public function shouldRegisterSubscribers() {
+	public function shouldRegisterSubscribers()
+    {
+        $this->markTestSkipped('Skipped in SH-121');
+
 		$subscriberMock = $this->registerSubscriberMock('EventSubscriberMock');
 
 		$this->serializerOptions
@@ -68,7 +71,10 @@ class SerializerFactoryTest extends \PHPUnit_Framework_TestCase {
 
 
 	/** @test */
-	public function shouldRegisterListeners() {
+	public function shouldRegisterListeners()
+    {
+        $this->markTestSkipped('Skipped in SH-121');
+
 		$subscriberMockA = $this->registerSubscriberMock('EventSubscriberMockA');
 		$subscriberMockB = $this->registerSubscriberMock('EventSubscriberMockB');
 
