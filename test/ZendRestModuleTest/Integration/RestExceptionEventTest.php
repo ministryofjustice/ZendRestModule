@@ -10,7 +10,11 @@ use Aeris\ZendRestModule\Event\RestErrorEvent;
 
 class RestExceptionEventTest extends IntegrationTestCase {
 
-	/** @test */
+	/**
+     * @test
+     *
+     * @doesNotPerformAssertions
+     */
 	public function shouldBeEmittedWithAControllerThrowsAnException() {
 		$handlerMock = M::mock('stdClass');
 
